@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trang giáo viên – Phòng khám Tim mạch nhí</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hieu-ung.css">
+<style>
+  .tab{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+  .tab button{border:2px solid var(--vien);background:#fff;border-radius:999px;padding:8px 16px;font-weight:bold;color:var(--do-dam)}
+  .tab button.chon{background:var(--do);border-color:var(--do);color:#fff}
+  .luoi-2{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end}
+  @media(max-width:800px){.luoi-2{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="dau">
+  <div class="logo">🩺</div>
+  <div><h1>Trang giáo viên – Phòng khám Tim mạch nhí</h1><small id="dauPhu"></small></div>
+  <div class="phai"><span id="cheDo" class="trang-thai"></span></div>
+</header>
+
+<main class="khung">
+  <section class="hop khong-in">
+    <h2>Lượt học</h2>
+    <div class="luoi-2">
+      <div><label class="o" for="oLop">Lớp</label><input class="o" id="oLop" placeholder="8A1" maxlength="10"></div>
+      <div><label class="o" for="oPhut">Thời gian làm phiếu</label>
+        <select class="o" id="oPhut"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>7</option><option>10</option></select></div>
+      <div><label class="o" for="oLuot">Lượt đang xem</label><select class="o" id="oLuot"></select></div>
+      <button class="nut" id="nutTaoLuot">＋ Tạo lượt mới</button>
+    </div>
+    <details style="margin-top:14px">
+      <summary><b>Cài đặt kết nối Google Sheet</b> (chỉ làm một lần)</summary>
+      <label class="o" for="oUrl">URL ứng dụng web Apps Script</label>
+      <input class="o" id="oUrl" placeholder="https://script.google.com/macros/s/…/exec">
+      <label class="o" for="oMK">Mật khẩu xem kết quả (đã đặt trong Apps Script)</label>
+      <input class="o" id="oMK" type="password" autocomplete="off">
+      <p class="hang" style="margin-top:10px"><button class="nut phu" id="nutLuuCD">Lưu cài đặt</button>
+      <span style="color:var(--mo);font-size:14px">Để trống URL = chế độ thử trên một máy (học sinh và giáo viên mở cùng trình duyệt).</span></p>
+    </details>
+  </section>
+
+  <nav class="tab khong-in" id="tab">
+    <button data-tab="qr" class="chon">1. Mã QR cho nhóm</button>
+    <button data-tab="theo">2. Theo dõi trực tiếp</button>
+    <button data-tab="bc">3. Tổng kết & báo cáo</button>
+  </nav>
+
+  <section id="tabQr">
+    <div class="hop khong-in hang" style="justify-content:space-between">
+      <div>Mỗi nhóm quét đúng mã của mình. Mã đã gắn sẵn lớp, lượt và thời gian.</div>
+      <div class="hang"><button class="nut phu" onclick="window.print()">🖨️ In mã QR</button></div>
+    </div>
+    <div class="qr-luoi" id="qrLuoi"></div>
+  </section>
+
+  <section id="tabTheo" class="an">
+    <div class="so-lieu" id="soLieu"></div>
+    <div class="hop hang khong-in" style="justify-content:space-between;padding:12px 20px">
+      <span id="capNhatLuc" style="color:var(--mo)"></span>
+      <div class="hang">
+        <button class="nut xanh" id="nutTrinhChieu">🎬 Trình chiếu sản phẩm</button>
+        <button class="nut phu" id="nutMau">Dữ liệu mẫu</button>
+        <button class="nut phu" id="nutXoa">Xoá dữ liệu thử</button>
+      </div>
+    </div>
+    <div class="luoi-gv" id="luoiGV"></div>
+  </section>
+
+  <section id="tabBc" class="an">
+    <div class="hop"><h2>Tổng kết lượt <span id="bcLuot"></span></h2><div id="bcTong"></div></div>
+    <div class="hop"><h2>Tỉ lệ đúng từng mục</h2><div id="bcMuc"></div></div>
+    <div class="hop"><h2>Bảng kết quả các nhóm</h2><div id="bcBang"></div></div>
+    <p class="khong-in"><button class="nut" onclick="window.print()">🖨️ In báo cáo</button></p>
+  </section>
+</main>
+
+<div class="trinh-chieu an" id="tc">
+  <div class="san" id="tcSan"></div>
+  <div class="ben">
+    <div class="hang" style="justify-content:space-between"><b id="tcTen" style="font-size:22px;color:var(--do-dam)"></b><button class="nut phu" id="tcDong">✕ Đóng</button></div>
+    <p id="tcThongTin" style="color:var(--mo)"></p>
+    <h3>Chấm sản phẩm</h3>
+    <div id="tcCham"></div>
+    <p><b>Tổng: <span id="tcTong">0</span>/20</b></p>
+    <label class="o" for="tcNX">Nhận xét</label>
+    <textarea class="o" id="tcNX" rows="3"></textarea>
+    <div class="hang" style="margin-top:14px"><button class="nut phu" id="tcTruoc">◀ Nhóm trước</button><button class="nut" id="tcSau">Nhóm sau ▶</button></div>
+    <p style="font-size:13px;color:var(--mo)">Phím ← → để chuyển nhóm, Esc để đóng.</p>
+  </div>
+</div>
+
+<script src="js/du-lieu.js"></script>
+<script src="js/mau.js"></script>
+<script src="js/qr.js"></script>
+<script src="js/ket-noi.js"></script>
+<script src="js/hieu-ung.js"></script>
+<script src="js/am-thanh.js"></script>
+<script src="js/giao-vien.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phòng khám Tim mạch nhí</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hieu-ung.css">
+</head>
+<body>
+<header class="dau">
+  <div class="logo">🫀</div>
+  <div><h1>Phòng khám Tim mạch nhí</h1><small id="dauPhu">KHTN 8 · Bài 33</small></div>
+  <div class="phai"><span id="nhanNhom" class="the-nhom an"></span><span id="dongHo" class="dong-ho an">0:00</span></div>
+</header>
+
+<main class="khung">
+  <!-- 0. Chọn nhóm -->
+  <section id="mhVao" class="hop an">
+    <h2>Chào các bác sĩ nhí! 👩‍⚕️👨‍⚕️</h2>
+    <p>Chọn đúng <b>số nhóm</b> của em. Mỗi nhóm là một phòng khám và sẽ nhận một hồ sơ bệnh nhân.</p>
+    <div class="luoi-nhom" id="luoiNhom"></div>
+    <p style="margin-top:16px"><button class="nut to" id="nutVao" disabled>Vào phòng khám</button></p>
+  </section>
+
+  <!-- 1. Hồ sơ bệnh nhân: cảnh phòng khám -->
+  <section id="mhHoSo" class="an">
+    <div class="canh">
+      <div class="canh-bien"><span class="den-do"></span>PHÒNG KHÁM TIM MẠCH NHÍ · PHÒNG SỐ <span id="soHS"></span></div>
+      <div class="canh-chinh">
+        <div class="bn"><div class="bn-anh" id="anhBN">🧑</div><br><span class="bn-ten" id="tenBN"></span></div>
+        <div class="bong-thoai"><span class="nhan-benh">Bệnh nhân kể</span><p id="tinhHuong"></p></div>
+        <div class="monitor" id="monitor">
+          <div style="font-size:12px;opacity:.8">MÀN HÌNH THEO DÕI</div>
+          <svg viewBox="0 0 300 70" preserveAspectRatio="none"><path id="duongTim" d=""/></svg>
+          <div class="so"><b id="chiSo1"></b><span class="nhap">●</span></div>
+          <div class="so"><span id="chiSo2"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hop nhiem-vu lan" style="--i:4">
+      <div class="bieu">🩺</div>
+      <div>
+        <h2 style="margin:0 0 6px">Nhiệm vụ của phòng khám</h2>
+        Bệnh nhân được chẩn đoán mắc <b id="tenBenh" style="color:var(--do)"></b>. Hãy hoàn thiện hồ sơ bệnh bằng cách đặt <b>5 thẻ đúng</b> vào 5 mục.
+        Trong kho có <b>3 thẻ “bẫy”</b>, đừng mắc lừa nhé! Thời gian: <b id="soPhut"></b> phút.
+        <p style="margin:14px 0 0"><button class="nut to nut-nhip" id="nutBatDau">Bắt đầu khám ⏱️</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Phiếu -->
+  <section id="mhPhieu" class="an">
+    <div class="hop" style="padding:14px 20px">
+      <b id="tomTat"></b><div class="tien-do"><i id="tienDo" style="width:100%"></i></div>
+      <div style="color:var(--mo);font-size:14px">Chạm vào một thẻ rồi chạm vào ô cần đặt (máy tính có thể kéo thả). Chạm vào ô đã có thẻ để gỡ thẻ ra.</div>
+    </div>
+    <div class="phieu">
+      <div id="cacO"></div>
+      <div class="kho-the"><h3>KHO THẺ (8 thẻ, có 3 thẻ bẫy)</h3><div id="khoThe"></div>
+        <button class="nut to" id="nutNop" style="width:100%" disabled>Nộp phiếu</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Kết quả phiếu -->
+  <section id="mhKetQua" class="an">
+    <div class="hop" style="text-align:center">
+      <div>Kết quả chẩn đoán của Nhóm <span class="soNhom"></span></div>
+      <div class="diem-to" id="khungDiem"><span id="diem">0</span>/100</div>
+      <div id="loiKhen"></div><div id="conDau"></div>
+    </div>
+    <div class="hop"><h2>Hồ sơ bệnh hoàn chỉnh</h2><div id="dapAn"></div></div>
+    <div class="hop"><h2>Vì sao các thẻ bẫy sai?</h2><div id="giaiNhieu"></div></div>
+    <p style="text-align:center"><button class="nut to xanh" id="nutSangTK">Thiết kế sản phẩm của nhóm ✨</button></p>
+  </section>
+
+  <!-- 4. Thiết kế sản phẩm -->
+  <section id="mhThietKe" class="an">
+    <div class="hop">
+      <h2>Bước 1. Chọn kiểu sản phẩm</h2>
+      <p style="margin-top:0">Mỗi kiểu có 5 mẫu. Mẫu của nhóm em được bốc ngẫu nhiên nên sẽ khác các nhóm bạn.</p>
+      <div class="chon-loai" id="chonLoai">
+        <button data-loai="info"><div class="bt">📊</div><b>Infographic</b><span>Áp phích dọc, nhiều màu, dễ treo lớp</span></button>
+        <button data-loai="mind"><div class="bt">🧠</div><b>Sơ đồ tư duy</b><span>Bệnh ở giữa, 5 nhánh toả ra</span></button>
+        <button data-loai="phieu"><div class="bt">📋</div><b>Phiếu trình bày</b><span>Hồ sơ bệnh án hoàn chỉnh, gọn gàng</span></button>
+      </div>
+    </div>
+    <div class="thiet-ke an" id="vungTK">
+      <div class="xem-truoc" style="position:sticky"><div id="xemTruoc"></div>
+        <div class="hang" style="margin-top:10px;justify-content:space-between"><span class="mau-ghi" id="tenMau"></span><button class="nut phu" id="nutTai">⬇️ Tải ảnh</button></div>
+      </div>
+      <div class="hop" style="margin-top:0">
+        <h2>Bước 2. Làm cho sản phẩm thật “chất”</h2>
+        <label class="o" for="oTieuDe">Tiêu đề sản phẩm</label>
+        <input class="o" id="oTieuDe" maxlength="50">
+        <div class="dem"><span id="demTD">0</span>/50</div>
+        <label class="o" for="oThongDiep">Thông điệp gửi cả lớp (một câu khẩu hiệu thật ấn tượng)</label>
+        <input class="o" id="oThongDiep" maxlength="60" placeholder="Ví dụ: Ăn nhạt hôm nay – Tim khỏe mai sau!">
+        <div class="dem"><span id="demTDiep">0</span>/60</div>
+        <label class="o">Bảng màu</label>
+        <div class="bang-mau" id="bangMau"></div>
+        <label class="o">Nội dung 5 mục (có thể viết lại bằng lời của nhóm, ngắn gọn)</label>
+        <div id="suaND"></div>
+        <p class="hang" style="margin-top:18px">
+          <button class="nut to xanh" id="nutNopSP">📤 Nộp sản phẩm cho cô</button>
+        </p>
+        <div id="daNopSP" class="chi-dan an">✅ Đã nộp! Cô đã nhận được sản phẩm. Nhóm vẫn có thể sửa và bấm nộp lại, cô sẽ thấy bản mới nhất.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/du-lieu.js"></script>
+<script src="js/mau.js"></script>
+<script src="js/ket-noi.js"></script>
+<script src="js/hieu-ung.js"></script>
+<script src="js/am-thanh.js"></script>
+<script src="js/hoc-sinh.js"></script>
+</body>
+</html>
