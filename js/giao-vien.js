@@ -189,7 +189,7 @@
     if (urlDung()) { thongBao('Dữ liệu mẫu chỉ dùng ở chế độ thử (chưa nhập URL).'); return; }
     let l = luotHT();
     if (!l) { $('nutTaoLuot').click(); l = luotHT(); }
-    const loai = ['info', 'mind', 'phieu', 'info', 'mind', 'phieu'], TD = ['Ăn đủ sắt – Máu khỏe mạnh', 'Huyết áp – Kẻ giết người thầm lặng', 'Giữ lòng mạch luôn thông thoáng', 'Lan ơi, đừng bỏ bữa!', 'Bớt muối – Thêm tuổi thọ', 'Nói KHÔNG với thuốc lá'];
+    const loai = ['info', 'mind', 'phieu', 'info', 'mind', 'phieu'], TD = ['Ăn đủ sắt – Máu khỏe mạnh', 'Huyết áp – Kẻ giết người thầm lặng', 'Giữ lòng mạch luôn thông thoáng', 'Tuấn ơi, đừng bỏ bữa!', 'Bớt muối – Thêm tuổi thọ', 'Nói KHÔNG với thuốc lá'];
     const TĐ = ['Mỗi bữa ăn đủ chất là một giọt máu khỏe!', 'Ăn nhạt hôm nay – Tim khỏe mai sau!', 'Tim khỏe nhờ mạch sạch!', 'Hồng cầu cần sắt như xe cần xăng!', 'Đo huyết áp thường xuyên, không đợi đau đầu!', 'Vận động mỗi ngày – Mạch máu thênh thang!'];
     const diem = [100, 80, 60, 100, 80, 100];
     for (let n = 1; n <= 6; n++) {

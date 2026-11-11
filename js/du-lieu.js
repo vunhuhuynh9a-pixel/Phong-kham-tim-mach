@@ -9,7 +9,7 @@ const CAU_HINH = {
   bai: 'Bài 33 — Máu và hệ tuần hoàn của cơ thể người',
   // Dán URL ứng dụng web Apps Script vào đây (xem HUONG-DAN.md, mục 3).
   // Để trống: chạy chế độ thử trên một máy (học sinh và giáo viên mở cùng trình duyệt).
-  urlKetQua: 'https://script.google.com/macros/s/AKfycbwEtzji_se71eo4U1LN65hXsi2zphbZNrmPx6gMhCXoCT5lKpOUuudfsarR18FzyQ9x/exec',
+  urlKetQua: '',
   soNhom: 6,
   phutMacDinh: 3
 };
@@ -30,12 +30,12 @@ const MUC = [
 const PHIEU = [
   {
     benh: 'Thiếu máu',
-    benhNhan: 'Bạn Lan, 13 tuổi',
+    benhNhan: 'Con Tuấn, 13 tuổi',
     chiSo: ['Nhịp tim: NHANH', 'Da: XANH XAO'], nhipNhanh: true,
-    tinhHuong: 'Lan kén ăn, hay bỏ bữa sáng và rất ít ăn thịt, cá, trứng. Dạo này Lan hay mệt, da xanh xao, leo cầu thang là tim đập nhanh.',
+    tinhHuong: 'Tuấn kén ăn, hay bỏ bữa sáng và rất ít ăn thịt, cá, trứng. Dạo này Tuấn hay mệt, da xanh xao, leo cầu thang là tim đập nhanh, học thể dục rất nhanh hụt hơi.',
     dung: [
       { the: 'Chế độ ăn thiếu sắt (ít thịt, cá, trứng) nên cơ thể không tạo đủ hemoglobin; hoặc cơ thể bị mất nhiều máu.',
-        giai: 'Sắt là thành phần cấu tạo nên hemoglobin. Lan bỏ bữa, ít ăn thịt, cá nên thiếu sắt; ngoài ra chảy máu nhiều cũng làm cơ thể mất hồng cầu.' },
+        giai: 'Sắt là thành phần cấu tạo nên hemoglobin. Tuấn bỏ bữa, ít ăn thịt, cá nên thiếu sắt; ngoài ra chảy máu nhiều cũng làm cơ thể mất hồng cầu.' },
       { the: 'Cơ thể mệt mỏi, da xanh xao; chỉ vận động nhẹ như leo cầu thang mà tim đã đập nhanh, dễ hụt hơi.',
         giai: 'Máu chở được ít oxygen nên cơ thể mệt; tim phải đập nhanh hơn để đưa máu đi nhiều hơn, bù lại lượng oxygen bị thiếu.' },
       { the: 'Máu vận chuyển oxygen kém nên các cơ quan bị thiếu oxygen; kéo dài có thể gây rối loạn nhịp tim, ngất xỉu.',
@@ -56,9 +56,9 @@ const PHIEU = [
   },
   {
     benh: 'Huyết áp cao',
-    benhNhan: 'Ông Hùng, 60 tuổi',
+    benhNhan: 'Bố Minh, 43 tuổi',
     chiSo: ['Huyết áp: 160/100', 'Đau đầu, chóng mặt'], nhipNhanh: false,
-    tinhHuong: 'Ông Hùng thích ăn mặn, hay ăn đồ chiên rán, ít đi bộ. Đo huyết áp được 160/100 mmHg. Thỉnh thoảng ông bị đau đầu, chóng mặt.',
+    tinhHuong: 'Bố Minh làm việc căng thẳng, thích ăn mặn, hay ăn đồ chiên rán và gần như không tập thể dục. Đo huyết áp được 160/100 mmHg. Thỉnh thoảng bố bị đau đầu, chóng mặt.',
     dung: [
       { the: 'Chế độ ăn mặn, nhiều đường và chất béo (đồ chiên rán); kèm theo ít vận động, căng thẳng, dùng rượu bia, thuốc lá.',
         giai: 'SGK nêu chế độ ăn nhiều muối, đường và chất béo gây huyết áp cao; ít vận động, căng thẳng, chất kích thích làm nguy cơ tăng thêm.' },
@@ -67,7 +67,7 @@ const PHIEU = [
       { the: 'Áp lực máu cao kéo dài làm tổn thương thành động mạch, có thể gây biến chứng nguy hiểm: nhồi máu cơ tim, đột quỵ, suy thận.',
         giai: 'Máu luôn ép mạnh lên thành mạch làm thành mạch bị tổn thương; tim cũng phải làm việc nặng hơn trong thời gian dài.' },
       { the: 'Ăn nhạt, hạn chế đường và dầu mỡ; vận động đều đặn; hạn chế rượu bia, thuốc lá; giữ tinh thần vui vẻ, thoải mái.',
-        giai: 'Với ông Hùng: bớt ăn mặn, bớt đồ chiên rán, đi bộ mỗi ngày và đo huyết áp thường xuyên theo hướng dẫn của bác sĩ.' },
+        giai: 'Với bố Minh: bớt ăn mặn, bớt đồ chiên rán, đi bộ mỗi ngày và đo huyết áp thường xuyên theo hướng dẫn của bác sĩ.' },
       { the: 'Bớt muối giúp cơ thể giảm giữ nước, giảm áp lực lên thành mạch; vận động và tinh thần thoải mái giúp tim mạch làm việc hiệu quả.',
         giai: 'Ăn uống, vận động hợp lí còn giúp kiểm soát cân nặng; tránh chất kích thích giúp hạn chế tăng huyết áp.' }
     ],
@@ -82,9 +82,9 @@ const PHIEU = [
   },
   {
     benh: 'Xơ vữa động mạch',
-    benhNhan: 'Bác Minh, 55 tuổi',
+    benhNhan: 'Ông Hùng, 68 tuổi',
     chiSo: ['Cholesterol: CAO', 'Tức ngực khi gắng sức'], nhipNhanh: false,
-    tinhHuong: 'Bác Minh hút thuốc lá 30 năm, ăn nhiều mỡ động vật, ít tập thể dục. Xét nghiệm thấy cholesterol trong máu cao. Gần đây bác hay đau tức ngực khi làm việc nặng.',
+    tinhHuong: 'Ông Hùng hút thuốc lá 40 năm, ăn nhiều mỡ động vật, ít tập thể dục. Xét nghiệm thấy cholesterol trong máu cao. Gần đây ông hay đau tức ngực mỗi khi làm việc nặng.',
     dung: [
       { the: 'Hút thuốc lá, ăn nhiều mỡ động vật, ít vận động làm hàm lượng cholesterol trong máu tăng cao.',
         giai: 'Cholesterol trong máu tăng cao, kết hợp với Ca²⁺ ngấm vào thành động mạch, tạo thành mảng xơ vữa.' },
@@ -93,7 +93,7 @@ const PHIEU = [
       { the: 'Mảng xơ vữa làm lòng mạch hẹp, giảm dòng máu, tăng huyết áp; cục máu đông có thể gây tắc mạch, dẫn tới đau tim, đột quỵ.',
         giai: 'Tắc động mạch vành (nuôi tim) gây đau tim, nhồi máu cơ tim; tắc động mạch não gây đột quỵ.' },
       { the: 'Không hút thuốc lá; hạn chế mỡ động vật và đồ chế biến sẵn nhiều dầu mỡ; ăn nhiều rau xanh; tập thể dục thường xuyên.',
-        giai: 'Với bác Minh: bỏ thuốc lá, thay mỡ động vật bằng dầu thực vật, tăng rau xanh và đi bộ, tập thể dục đều đặn.' },
+        giai: 'Với ông Hùng: bỏ thuốc lá, thay mỡ động vật bằng dầu thực vật, tăng rau xanh và đi bộ, tập thể dục đều đặn.' },
       { the: 'Ăn hợp lí và vận động giúp giảm cholesterol trong máu; tránh thuốc lá giúp bảo vệ thành mạch, hạn chế hình thành mảng xơ vữa.',
         giai: 'Ít cholesterol thì ít chất ngấm vào thành mạch; thành mạch không bị khói thuốc làm tổn thương thì khó hình thành mảng xơ vữa.' }
     ],

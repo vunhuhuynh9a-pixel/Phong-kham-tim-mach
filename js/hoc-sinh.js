@@ -2,7 +2,7 @@
 (function () {
   const $ = id => document.getElementById(id);
   const q = new URLSearchParams(location.search);
-  const ANH_BN = ['👧', '👴', '👨‍🦳'];
+  const ANH_BN = ['👦', '👨', '👴'];
 
   // ----- tham số lượt -----
   const luot = (q.get('l') || 'thu').slice(0, 20);
