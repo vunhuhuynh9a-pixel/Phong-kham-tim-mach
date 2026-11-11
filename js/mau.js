@@ -352,10 +352,11 @@
   ];
 
   const BO = { info: INFO, mind: MIND, phieu: PHIEU_MAU };
+  window.MAU_CC = { chu, rect, circle, line, icon, esc, doRong, xuongDong, FONT, chanTrang, nhan, BO, BANG_MAU };
   window.LOAI_SAN_PHAM = LOAI;
   window.BANG_MAU = BANG_MAU;
   window.veSanPham = function (sp) {
-    const L = LOAI[sp.loai] || LOAI.info, ham = (BO[sp.loai] || INFO)[(sp.mau || 0) % 5];
+    const L = LOAI[sp.loai] || LOAI.info, bo = BO[sp.loai] || INFO, ham = bo[(sp.mau || 0) % bo.length];
     const p = BANG_MAU[(sp.bangMau || 0) % BANG_MAU.length];
     let body = '';
     try { body = ham(sp, p, L.w, L.h); } catch (e) { body = `<text x="40" y="80" font-size="30">Lỗi vẽ mẫu: ${esc(e.message)}</text>`; }
