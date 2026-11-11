@@ -9,7 +9,7 @@ const CAU_HINH = {
   bai: 'Bài 33 — Máu và hệ tuần hoàn của cơ thể người',
   // Dán URL ứng dụng web Apps Script vào đây (xem HUONG-DAN.md, mục 3).
   // Để trống: chạy chế độ thử trên một máy (học sinh và giáo viên mở cùng trình duyệt).
-  urlKetQua: '',
+  urlKetQua: 'https://script.google.com/macros/s/AKfycbwEtzji_se71eo4U1LN65hXsi2zphbZNrmPx6gMhCXoCT5lKpOUuudfsarR18FzyQ9x/exec',
   soNhom: 6,
   phutMacDinh: 3
 };
